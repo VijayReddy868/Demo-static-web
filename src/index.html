@@ -14,12 +14,14 @@
     <p>Loading content from the API: <b id="date">...</b></p>
     </main>
 
-    <script>
-    (async function() {
-        const { text } = await( await fetch(`/api/WeatherForecast`)).json();
-        document.querySelector('#date').textContent = text;
-    }());
-    </script>
+   <script type="text/javascript" language="javascript">
+     const userAction = async () => 
+    {
+       const response = await fetch('/api/WeatherForecast');
+       var data = await response.json(); //extract JSON from the http response
+      console.log(data);
+   }
+     </script>
 </body>
 
 </html>
