@@ -8,6 +8,7 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+      - dev
 
 jobs:
   build_and_deploy_job:
@@ -19,8 +20,10 @@ jobs:
         with:
           submodules: true
       - name: Build And Deploy
+             deployment_environment:"release-1"
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
+   
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WONDERFUL_SEA_08C20C710 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
